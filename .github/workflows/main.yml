@@ -25,6 +25,7 @@ jobs:
         if ("${{ inputs.AndroidStudio }}" -eq "true") { choco install androidstudio --ignore-checksum}
         if ("${{ inputs.RippingTools }}" -eq "true") { write-host " RippingTools installation"}
         if ("${{ inputs.FreeFire }}" -eq "true") { 
+          invoke-webrequest -uri "https://dl.cdn.freefiremobile.com/live/package/FreeFire.apk"
           choco install bluestacks --version=5.21.600.1019 --ignore-checksum --no-progress
          }
     - name: setup
